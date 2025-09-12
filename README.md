@@ -1,16 +1,26 @@
-# stem_flashcards
+# STEM Flashcards
 
-A new Flutter project.
+## 프로젝트 소개
 
-## Getting Started
+- STEM Flashcards는 고등학생부터 대학생 저학년까지, 이과 계열 학생들을 위한 필수 수학 및 과학 공식 암기 앱입니다.
+- 복잡한 백엔드 없이 Flutter를 사용하여 빠르게 개발된 MVP(Minimum Viable Product) 버전으로, 오프라인에서도 사용할 수 있습니다.
 
-This project is a starting point for a Flutter application.
+## 주요 기능 (MVP)
 
-A few resources to get you started if this is your first Flutter project:
+덱 리스트: 미리 제작된 수학, 물리, 화학, 생물 덱 목록을 볼 수 있습니다.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+학습 화면: 덱을 선택하면 플래시카드 형태로 공식을 암기할 수 있습니다.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+LaTeX 렌더링: flutter_tex 라이브러리를 사용하여 복잡한 수식이 깔끔하게 표시됩니다.
+
+로컬 데이터: 모든 데이터는 앱 내부에 JSON 파일로 저장되어, 인터넷 연결 없이도 완벽하게 작동합니다.
+
+## 기술 스택
+
+프레임워크: Flutter
+
+상태 관리: Riverpod
+
+UI/UX: 글래스모피즘 및 3D 요소 컨셉 적용
+
+주요 라이브러리: flutter_tex
