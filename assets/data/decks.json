@@ -1,0 +1,121 @@
+{
+  "decks": [
+    {
+      "id": "math_formulas_1",
+      "title": "수학 공식 - 기본",
+      "description": "고등학교 수학의 핵심 공식들을 모았습니다",
+      "subject": "수학",
+      "difficulty": "중급",
+      "icon": "📐",
+      "color": "#4A90E2",
+      "totalCards": 3,
+      "cards": [
+        {
+          "id": "quadratic_formula",
+          "front": "이차방정식의 해 공식",
+          "back": "ax² + bx + c = 0의 해는 x = (-b ± √(b²-4ac)) / 2a",
+          "latexFront": "ax^2 + bx + c = 0",
+          "latexBack": "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}",
+          "subject": "수학",
+          "difficulty": "중급"
+        },
+        {
+          "id": "pythagorean_theorem",
+          "front": "피타고라스 정리",
+          "back": "직각삼각형에서 빗변의 제곱은 다른 두 변의 제곱의 합과 같다",
+          "latexFront": "a^2 + b^2 = c^2",
+          "latexBack": "\\text{직각삼각형에서 } a^2 + b^2 = c^2",
+          "subject": "수학",
+          "difficulty": "기초"
+        },
+        {
+          "id": "derivative_rule",
+          "front": "미분의 기본 공식",
+          "back": "f(x) = xⁿ의 도함수는 f'(x) = nxⁿ⁻¹",
+          "latexFront": "f(x) = x^n",
+          "latexBack": "f'(x) = nx^{n-1}",
+          "subject": "수학",
+          "difficulty": "고급"
+        }
+      ]
+    },
+    {
+      "id": "physics_laws_1",
+      "title": "물리 법칙 - 역학",
+      "description": "뉴턴의 운동법칙과 기본 역학 공식들",
+      "subject": "물리",
+      "difficulty": "중급",
+      "icon": "⚡",
+      "color": "#7B68EE",
+      "totalCards": 3,
+      "cards": [
+        {
+          "id": "newton_first_law",
+          "front": "뉴턴의 제1법칙",
+          "back": "관성의 법칙: 외부 힘이 작용하지 않으면 정지한 물체는 계속 정지하고, 운동하는 물체는 등속직선운동을 계속한다",
+          "latexFront": "\\sum F = 0",
+          "latexBack": "\\text{외부 힘이 없으면 } \\vec{v} = \\text{상수}",
+          "subject": "물리",
+          "difficulty": "기초"
+        },
+        {
+          "id": "newton_second_law",
+          "front": "뉴턴의 제2법칙",
+          "back": "F = ma (힘 = 질량 × 가속도)",
+          "latexFront": "F = ma",
+          "latexBack": "\\vec{F} = m\\vec{a}",
+          "subject": "물리",
+          "difficulty": "중급"
+        },
+        {
+          "id": "kinetic_energy",
+          "front": "운동에너지 공식",
+          "back": "KE = ½mv² (운동에너지 = ½ × 질량 × 속도의 제곱)",
+          "latexFront": "KE = \\frac{1}{2}mv^2",
+          "latexBack": "\\text{운동에너지} = \\frac{1}{2}mv^2",
+          "subject": "물리",
+          "difficulty": "중급"
+        }
+      ]
+    },
+    {
+      "id": "chemistry_elements_1",
+      "title": "화학 원소 - 주기율표",
+      "description": "주요 화학 원소들의 기호와 특성",
+      "subject": "화학",
+      "difficulty": "기초",
+      "icon": "🧪",
+      "color": "#FF6B6B",
+      "totalCards": 3,
+      "cards": [
+        {
+          "id": "hydrogen",
+          "front": "수소 (H)",
+          "back": "원자번호 1, 가장 가벼운 원소, 무색무취의 기체",
+          "latexFront": "H",
+          "latexBack": "\\text{원자번호: 1, 원자량: 1.008}",
+          "subject": "화학",
+          "difficulty": "기초"
+        },
+        {
+          "id": "oxygen",
+          "front": "산소 (O)",
+          "back": "원자번호 8, 생명체의 호흡에 필수적인 원소",
+          "latexFront": "O",
+          "latexBack": "\\text{원자번호: 8, 원자량: 15.999}",
+          "subject": "화학",
+          "difficulty": "기초"
+        },
+        {
+          "id": "carbon",
+          "front": "탄소 (C)",
+          "back": "원자번호 6, 모든 생명체의 기본 구성 요소",
+          "latexFront": "C",
+          "latexBack": "\\text{원자번호: 6, 원자량: 12.011}",
+          "subject": "화학",
+          "difficulty": "기초"
+        }
+      ]
+    }
+  ]
+}
