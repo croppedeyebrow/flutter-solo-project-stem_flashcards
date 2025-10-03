@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/navigation_util.dart';
 
 class SimpleStudyScreen extends StatefulWidget {
   final String deckId;
@@ -82,15 +83,45 @@ class _SimpleStudyScreenState extends State<SimpleStudyScreen> {
               ],
             ),
           ),
-          child: const Center(
-            child: Text(
-              '덱을 찾을 수 없습니다',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            children: [
+              NavigationUtil.buildGlassNavigationBar(
+                context: context,
+                title: '아직 학습할 덱이 없습니다',
+                showBackButton: true,
               ),
-            ),
+              Expanded(
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.error_outline,
+                        size: 64,
+                        color: Colors.white.withOpacity(0.7),
+                      ),
+                      const SizedBox(height: 16),
+                      const Text(
+                        '덱을 찾을 수 없습니다',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '덱 ID: ${widget.deckId}',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.7),
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       );

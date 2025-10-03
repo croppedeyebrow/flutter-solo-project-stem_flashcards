@@ -1,40 +1,91 @@
 import 'package:flutter/material.dart';
 
 class SimpleDeckListScreen extends StatelessWidget {
-  const SimpleDeckListScreen({super.key});
+  final String? selectedSubject;
+
+  const SimpleDeckListScreen({super.key, this.selectedSubject});
 
   @override
   Widget build(BuildContext context) {
     // 하드코딩된 덱 데이터
-    final decks = [
+    final allDecks = [
       {
         'id': 'math_formulas_1',
         'title': '수학 공식 - 기본',
         'description': '고등학교 수학의 핵심 공식들을 모았습니다',
-        'subject': '수학',
+        'subject': 'math',
+        'subjectKorean': '수학',
         'difficulty': '중급',
         'icon': '📐',
         'totalCards': 3,
       },
       {
+        'id': 'math_formulas_2',
+        'title': '수학 공식 - 고급',
+        'description': '대학교 수학의 고급 공식들',
+        'subject': 'math',
+        'subjectKorean': '수학',
+        'difficulty': '고급',
+        'icon': '📐',
+        'totalCards': 5,
+      },
+      {
         'id': 'physics_laws_1',
         'title': '물리 법칙 - 역학',
         'description': '뉴턴의 운동법칙과 기본 역학 공식들',
-        'subject': '물리',
+        'subject': 'physics',
+        'subjectKorean': '물리',
         'difficulty': '중급',
         'icon': '⚡',
         'totalCards': 3,
       },
       {
+        'id': 'physics_laws_2',
+        'title': '물리 법칙 - 전자기학',
+        'description': '전자기학의 기본 법칙들',
+        'subject': 'physics',
+        'subjectKorean': '물리',
+        'difficulty': '고급',
+        'icon': '⚡',
+        'totalCards': 4,
+      },
+      {
         'id': 'chemistry_elements_1',
         'title': '화학 원소 - 주기율표',
         'description': '주요 화학 원소들의 기호와 특성',
-        'subject': '화학',
+        'subject': 'chemistry',
+        'subjectKorean': '화학',
         'difficulty': '기초',
         'icon': '🧪',
         'totalCards': 3,
       },
+      {
+        'id': 'biology_cells_1',
+        'title': '생물학 - 세포 구조',
+        'description': '세포의 구조와 기능',
+        'subject': 'biology',
+        'subjectKorean': '생물',
+        'difficulty': '기초',
+        'icon': '🧬',
+        'totalCards': 4,
+      },
     ];
+
+    // 선택된 과목에 따라 필터링
+    final filteredDecks = selectedSubject != null
+        ? allDecks.where((deck) => deck['subject'] == selectedSubject).toList()
+        : allDecks;
+
+    // 과목 이름 매핑
+    final subjectNames = {
+      'math': '수학',
+      'physics': '물리',
+      'chemistry': '화학',
+      'biology': '생물',
+    };
+
+    final subjectTitle =
+        selectedSubject != null ? subjectNames[selectedSubject] ?? '전체' : '전체';
 
     return Scaffold(
       body: Container(
@@ -88,9 +139,9 @@ class SimpleDeckListScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'STEM Flashcards',
-                              style: TextStyle(
+                            Text(
+                              '$subjectTitle Flashcards',
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -98,7 +149,9 @@ class SimpleDeckListScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              '수학 • 물리 • 화학 • 생물 공식 암기',
+                              selectedSubject != null
+                                  ? '$subjectTitle 과목의 플래시카드'
+                                  : '수학 • 물리 • 화학 • 생물 공식 암기',
                               style: TextStyle(
                                 color: Colors.white.withOpacity(0.9),
                                 fontSize: 14,
@@ -116,9 +169,9 @@ class SimpleDeckListScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  itemCount: decks.length,
+                  itemCount: filteredDecks.length,
                   itemBuilder: (context, index) {
-                    final deck = decks[index];
+                    final deck = filteredDecks[index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushNamed(
@@ -268,12 +321,16 @@ class SimpleDeckListScreen extends StatelessWidget {
 
   List<Color> _getSubjectColors(String subject) {
     switch (subject) {
+      case 'math':
       case '수학':
         return [const Color(0xFF4facfe), const Color(0xFF00f2fe)];
+      case 'physics':
       case '물리':
         return [const Color(0xFF667eea), const Color(0xFF764ba2)];
+      case 'chemistry':
       case '화학':
         return [const Color(0xFFf093fb), const Color(0xFFf5576c)];
+      case 'biology':
       case '생물':
         return [const Color(0xFF43e97b), const Color(0xFF38f9d7)];
       default:
